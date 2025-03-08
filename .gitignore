@@ -1,0 +1,10 @@
+# Fichiers sensibles
+.env
+
+# Fichiers temporaires
+.log
+.cache
+
+# Dossiers spécifiques à l'environnement
+vendor/
+node_modules/
