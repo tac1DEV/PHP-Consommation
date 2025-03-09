@@ -3,12 +3,11 @@ version: '3.8'
 services:
   app:
     build: .
-    container_name: consommation
+    container_name: consommation-app
     ports:
       - "8080:80"
     volumes:
-      - ./public:/var/www/html
-      - ./config:/var/www/html/config
+      - .:/var/www/html
     depends_on:
       - db
 
@@ -28,13 +27,15 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: gestion-phpmyadmin
+    container_name: consommation-phpmyadmin
     restart: always
     ports:
       - "8081:80"
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
 
 volumes:
   db_data:

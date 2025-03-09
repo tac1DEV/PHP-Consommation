@@ -1,10 +1,15 @@
-FROM php:8.2-apache
+# Utiliser une image de base PHP avec Apache
+FROM php:8.1-apache
 
-RUN a2enmod rewrite \
-    && docker-php-ext-install pdo pdo_mysql mysqli
+# Installer les extensions PHP nécessaires
+RUN docker-php-ext-install pdo pdo_mysql
 
-COPY ./public /var/www/html/
+# Copier les fichiers de l'application dans le conteneur
+COPY . /var/www/html/
 
-WORKDIR /var/www/html
+# Donner les permissions appropriées
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
 
+# Exposer le port 80
 EXPOSE 80
