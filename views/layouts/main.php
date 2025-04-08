@@ -8,6 +8,12 @@
 </head>
 
 <body>
+    <nav style="background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd;">
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 15px;">
+            <li><a href="/" style="text-decoration: none; color: #007bff;">Home</a></li>
+            <li><a href="/contact" style="text-decoration: none; color: #007bff;">Contact</a></li>
+        </ul>
+    </nav>
     {{content}}
 </body>
 
